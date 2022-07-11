@@ -1,0 +1,77 @@
+http://myapplication.com/   --> Home
+
+http://myapplication.com/profile  -->profile  --> Component Routing
+
+http://myapplication.com/users  --> users
+
+http://myapplication.com/search?user=abc -->search  --Query Params
+
+http://myapplication.com/tasks/10/category/pending  -->Tasks  -->URL Segment
+
+    http://myapplication.com/users/view/10  --> view-user  -->Child Routes
+    http://myapplication.com/users/edit/10  --> edit-user  -->Child Routes
+    http://myapplication.com/users/add      -->add-user    -->Child Routes
+    http://myapplication.com/users/manage   -->manage-user -->Child Routes
+
+PageNotFound
+    http://myapplication.com/pageNotFound -> 404 error --> No matching routes
+
+Erros==
+    adding "/" in path
+    component name in quotes
+    bad formed array of routes
+    red color underline means there is som error
+
+Router Outlet
+    Router outlet is a built-in directive
+    Every Angular app should have atleast one router outlet
+    By Default - the router outlet is defined in app.component.html
+    Router outlet will match the matching routes for the component
+        takes it output
+            insert inside the page
+    we can define multiple router outlets by giving name to them
+    that's why we call them named router outlet
+    in routing module- if you don't define outlet -- it means it's primary
+    It will not show if you directly access it in the URL
+    Syntax
+    http://localhost:4200/<primary-route>(<routerOutletName>:<secondaryPath>)
+
+    Routing behaviour of the application URLs
+    Angular provode 2 routing strategies
+
+    --  PathLocationStrategy
+        Default routing startegy for Angular apps
+        HTML 5 push state URL
+        http://myapp.com/dashboard
+        http://myapp.com/user/10
+        http://myapp.com/user/photos
+
+    --  HashLocationStrategy
+        URL segments/patters
+        URLs will have hash in the URLs
+        http://myapp.com/#/dashboard
+        http://myapp.com/#/user/10
+        http://myapp.com/#/user/photos
+
+       /#/loans/add --> folder
+        -->router
+
+Base HREF is mandatory for all angular apps
+Base HREF is present in your index.html
+The project is pointing to the "root" directory/folder of your server which is routing
+when you are deploying Angular apps to server
+    --> root server
+    http://myapp.com
+
+    http://myapp.com/app1/
+
+It decides where you want to deploy your app
+    -- that's why it's extremly important
+
+Routing Module is a placeholder for configuring all routes and navigations in one module
+we can generate the app routing module using the CLI
+    ng g m app-routing --flat -module=app
+
+Any unmatched route will be intercepted by wild card route
+This has to be the last route in your application
+we define by saying the path to match "**"
