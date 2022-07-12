@@ -1,0 +1,84 @@
+Any Angular application is made up of multiple modules
+
+Loan Management System
+    - Loans
+    - Customers
+    - Paymnets
+    - Admin
+    - Authentication
+    - Authorization
+Angular by default will load all modules at start
+Loading all modules initially - whether reuired or not leads to problems
+    - makes your application slow performance
+    -it's a bad idea to expose all modules which user is NOT going to user
+Lazy Loading
+    - Initially we will load only modules which are required/mandatory
+    - Rest we will serve as "Requested"
+    - We will route for each module
+
+    - Paymnets
+    /Paymnets
+        - then only we will load this module
+
+        1. it will increase the performance
+        2. we can verify that if the user has access to this module
+The module generated using the Angular CLI - for Lazy Loading
+    There will be no entry in AppModule
+    Hence, it will not be loaded initially
+ng g module <module-name> --route <module-route> --module app.module
+The above command will generate the following
+    A routing file for the module
+    A module file
+    A component
+        -html
+        -css
+        -spec
+        -ts
+    update the app routing module
+/Paymnets
+ module on demand and its children - if needed
+
+Route Guards
+Route Guards helps us secure our routes and screens
+
+user -> Admin -> Route Guards
+                    -> Custom Logic
+                        -> True
+                            can access the route ->Admin
+                        -> False
+                            navigate to home page ->Home
+ng g guard <guard_name>
+
+Route Guards have the following interfaces
+ -CanActivate -> can a user access a route
+ -CanActivateChild -> can user access child routes of a parent route
+ -CanDeactivate -> check if user can exit the route
+ -CanLoad -> Can a lazy loaded module be loaded
+
+Services
+    service are reusable common shared functionality between different modules
+    services are injected using the DI mechanism
+    services are used for interaction with backend APIs or rest endpoints
+ng g service <service_name>
+where should you keep the services?
+ -> create a single folder to place all services
+ -> @Injectable
+   ->Dependency Injection mechanism
+ -> ProvideIn
+    ->It's available wherever we inject it
+-> services not imported in modules
+->only importes in component where its used
+->create an instance in the constructor
+-> call the method using the instance of the service
+HttpClient
+HttpClient is used for communicating between frontend app and backend APIs/rest end points
+HttpClientModule in AppModule
+we need to inject HttpClient in components/services
+CRUD Operations
+    create  POST
+    update  PUT / PATCH
+    read    GET
+    delete  DELETE
+HttpClient for sending/configuring the headers that are sent
+HttpClient helps in creating Interceptors for API requests
+HttpClient can be used for common error handling
