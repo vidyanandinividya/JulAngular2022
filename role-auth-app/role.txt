@@ -1,0 +1,3 @@
+Administration -- accessible only by superuser
+Management - accessible only by manager
+General -- accessible by any user
