@@ -1,0 +1,60 @@
+The client uses a web browser to send request to the server.
+The server sends a response back to the browser with a set of instructions written in HTML
+
+Website
+    collection of static files i.e. web pages such as HTML pages, images, graphics etc
+Web Application
+    It is a website with dynamic functionality on the server
+    Google, Facebook,Twitter
+HTTP
+    is a protocol which is used by the clients and servers on the web to communicate
+    It is a stateless protocol i.e it supports only one request per connection
+Get
+    Data is sent in the header body
+    Restricted to limited data transfer
+    It is not secured
+    It can be bookmarked
+Post
+    Data is sent in the request body
+    Supports a large amount of data transfer
+    It is completely secured
+    It cannot be bookmarked   
+Servlet
+    It is a Java class that is used to extend the capabilities of servers that host applications by means of a request-response programming model
+    It is a web component that is displayed on the server to create dynamic web page.
+Steps to Create Servlet
+    Create a directory structure
+    Create a Servlet
+    Compile the Servlet
+    Add mappings to the web.xml file
+    Start the server and deploy the project
+    Access the Servlet
+Servlet Life Cycle
+    The Servlet class is loaded
+    The Servlet instance is created
+    The init() method is invoked in order to initialize the Servlet
+    The service() method is invoked repeatedly for each client request placed
+    The Servlet is destroyed using destroy() method
+
+    init()
+        whenever a user invokes the URL associated with a particular servlet, the init() method is called
+        it is called only once and not each time there is a request.
+    service()
+        It is an important method that will get called every time when a request recieved for the servlet
+    destroy()
+        This method is also called just once at the end of the servlet life cycle.
+        It helps perform all the clean-up activities including database connections, halting background threads, etc
+        It removes the servlet from the container
+In older version HTTP Servlet imported from the package javax.servlet.HttpServlet
+In new version HTTP Servlet imported from the package jakarta.servlet.http.HttpServlet;
+RequestDispatcher
+    It is an interface which provides the facility of dispatching the request or including the request.
+
+    forward() : Forwards a request from a servlet to another resource (servlet, JSP file, HTML file) on the server
+    include() : Includes the content of a resource (Servlet, JSP file, HTML file) in the response.
+sendRedirect()
+    This method of HttpServletResponse interface can be used to redirect the response to another resource (servelet, JSP file, HTML file)
+Session Management
+    It is a mechanism used by Web container to store session information for a particular user.
+    The session is mainly used for time duration for the client and server interaction
+    we can track the data using session tracking to maintain the user data in a particular state.
